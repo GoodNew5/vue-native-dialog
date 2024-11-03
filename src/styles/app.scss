@@ -1,0 +1,94 @@
+@use 'reset';
+@use 'breakpoints';
+@use 'native_dialog';
+
+:root {
+  --html-font-size: 62.5%;
+  --body-font-size: 1.4rem;
+
+  --font-montserrat: "Montserrat", sans-serif;
+
+  // theme
+
+  --color1: hsl(40deg 100% 93% / 88%);
+  --color3: hsl(0deg 0% 20%);
+  --color8: hsl(36deg 95% 59%);
+
+  --theme-color1-dark: var(--color1);
+  --theme-color4-dark: var(--color3);
+
+  // background
+  --bgc1-dark: var(--color3);
+}
+
+[inert] {
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+  touch-action: none;
+}
+
+html {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  text-size-adjust: none;
+  touch-action: manipulation;
+  text-wrap: pretty;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  font-size: var(--html-font-size);
+  scroll-behavior: smooth;
+  background-color: var(--bgc1-dark);
+  color: var(--theme-color1-dark);
+  scrollbar-gutter: stable;
+  font-family: var(--font-montserrat);
+
+  /**
+    px need because safari on ios sometimes
+    do autoscale when page first load
+  **/
+
+  /* stylelint-disable-next-line unit-allowed-list */
+  min-width: 320px;
+}
+
+body {
+  flex-direction: column;
+  display: flex;
+  font-size: var(--body-font-size);
+
+  .Safari & {
+    overflow-y: scroll;
+  }
+}
+
+.casual-dialog {
+  z-index: var(--app-menu-layer);
+  overflow: auto;
+  max-inline-size: initial;
+  max-block-size: initial;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+
+  &::backdrop {
+    display: none;
+  }
+}
+
+.simple-dialog {
+  @include breakpoints.breakpoint('TO_HANDS') {
+    max-inline-size: initial;
+    max-block-size: min(90dvh, 100%);
+  }
+}
+
+.complex-animation-dialog {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  outline: none;
+}

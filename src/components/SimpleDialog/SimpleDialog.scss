@@ -1,0 +1,19 @@
+@use '@styles/breakpoints';
+
+.simple-dialog-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--color1);
+}
+
+.simple-dialog {
+  padding: 0 2rem 2rem;
+
+  @include breakpoints.breakpoint('HANDS') {
+    padding: 2rem
+  }
+}
+
+.simple-dialog-description {
+  color: var(--color1);
+}

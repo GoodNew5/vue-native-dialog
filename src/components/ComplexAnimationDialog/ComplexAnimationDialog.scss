@@ -1,0 +1,30 @@
+.test-dialog-svg-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.test-dialog-rect {
+  stroke: var(--color8);
+}
+
+.container-box {
+  z-index: 1;
+  position: relative;
+  padding: 4rem;
+}
+
+.title {
+  color: var(--color1);
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--color1);
+  font-size: 2rem;
+}

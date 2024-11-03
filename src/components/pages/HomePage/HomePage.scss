@@ -1,0 +1,41 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: var(--color8);
+  height: 9rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.home-page {
+  min-height: 100vh;
+  padding: 12rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-open-dialog {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: .3rem solid var(--color3);
+  color: var(--color3);
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background-color: var(--color3);
+      color: var(--color1);
+    }
+  }
+}
+
+.breakpoint {
+  font-size: 8rem;
+}

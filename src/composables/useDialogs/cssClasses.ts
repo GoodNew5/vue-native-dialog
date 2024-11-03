@@ -1,0 +1,9 @@
+export const nativeDialogClass = 'native-dialog'
+export const bottomSheetPanelClass = 'bottom-sheet-panel'
+export const bottomSheetMainClass = `${nativeDialogClass}-${bottomSheetPanelClass}`
+export const dialogWithBottomSheetClass = `${nativeDialogClass}-with-${bottomSheetPanelClass}`
+export const dialogButtonCloseClass = `${nativeDialogClass}-with-button-close`
+export const dialogOpenedClass = `${nativeDialogClass}-opened`
+export const dialogNameAttr = `${nativeDialogClass}-name`
+export const nativeDialogRootClass = `${nativeDialogClass}-root`
+export const nativeDialogNavElementClass = `${nativeDialogClass}-nav-element`

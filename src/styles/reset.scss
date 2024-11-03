@@ -1,0 +1,202 @@
+/* stylelint-disable */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+fieldset[class*='disabled'],
+fieldset[disabled],
+button[disabled],
+button[class*='disabled'] {
+  user-select: none;
+}
+
+body {
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+  flex-shrink: 0;
+  margin: 0;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+input {
+  &:read-only {
+    pointer-events: none;
+  }
+}
+
+button,
+input,
+textarea,
+fieldset {
+  font-family: inherit;
+}
+
+input {
+  min-width: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  appearance: none;
+  border: none;
+}
+
+input,
+textarea {
+  padding: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+fieldset[disabled] {
+  pointer-events: none;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input:required {
+  box-shadow: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  width: 100%;
+  display: block;
+  -webkit-appearance: none;
+}
+
+ul,
+ol,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p,
+input {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+fieldset {
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+[role='button'] {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+
+  &[alt] {
+    /**
+      hide-alt-text
+      https://stackoverflow.com/questions/36305805/how-to-hide-alt-text-using-css-when-the-image-is-not-present
+    **/
+
+    font-size: 0;
+    text-indent: -999rem;
+    color: transparent;
+  }
+
+  &:after {
+    /**
+      hide-image-broken
+      https://stackoverflow.com/questions/22051573/how-to-hide-image-broken-icon-using-only-css-html/62842440#62842440
+    **/
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: var(--image-not-available) no-repeat var(--White) center;
+    content: '';
+    margin: auto;
+    background-size: 6rem;
+  }
+}
+
+dialog {
+  padding: 0;
+  margin: 0;
+  inset: 0;
+  max-height: initial;
+  max-width: initial;
+  border: none;
+}
+
+/** _____ iOs fixes ______**/
+
+*[contenteditable],
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}

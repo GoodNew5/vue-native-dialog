@@ -1,0 +1,17 @@
+{ "extends": "stylelint-config-standard-scss",
+  "rules": {
+      "custom-property-empty-line-before": "never",
+      "block-no-empty": null,
+      "unit-allowed-list": [
+        "em",
+        "vh",
+        "vw",
+        "rem",
+        "%",
+        "s",
+        "deg",
+        "dvh",
+        "ch"
+      ]
+    }
+}

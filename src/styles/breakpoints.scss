@@ -1,0 +1,90 @@
+@use "sass:string";
+
+$handBreakpoint: 320;
+$handsBreakpoint: 768;
+$lapBreakpoint: 1024;
+$deskBreakpoint: 1440;
+//
+$hands: 768px;
+$lap: 1024px;
+$desk: 1440px;
+$breakpoints: (
+  'TO_HANDS': $hands - 1,
+  'HANDS': $hands,
+  'TO_LAP': $lap - 1,
+  'LAP': $lap,
+  'TO_DESK': $desk - 1,
+  'DESK': $desk
+);
+
+:export {
+  @each $key, $value in $breakpoints {
+    #{string.unquote($key)}: $value;
+  }
+}
+
+@mixin breakpoint($point) {
+  @if $point == TO_HANDS {
+    @media (max-width: $hands - 1) {
+      @content;
+    }
+  }
+
+  @if $point == HANDS {
+    @media (min-width: $hands) {
+      @content;
+    }
+  } @else if $point == TO_LAP {
+    @media (max-width: $lap - 1) {
+      @content;
+    }
+  } @else if $point == LAP {
+    @media (min-width: $lap) {
+      @content;
+    }
+  } @else if $point == TO_DESK {
+    @media (max-width: $desk - 1) {
+      @content;
+    }
+  } @else if $point == DESK {
+    @media (min-width: $desk) {
+      @content;
+    }
+  } @else if $point == LAP_ONLY {
+    @media (min-width: $lap) and (max-width: $desk - 1) {
+      @content;
+    }
+  } @else if $point == HANDS_ONLY {
+    @media (min-width: $hands) and (max-width: $lap - 1) {
+      @content;
+    }
+  } @else if $point == TO_HANDS_LANDSCAPE {
+    @media (max-width: $hands - 1) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $point == TO_LAP_LANDSCAPE {
+    @media (max-width: $lap - 1) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $point == HANDS_LANDSCAPE {
+    @media (min-width: $hands) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $point == LAP_LANDSCAPE {
+    @media (min-width: $lap) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $point == HOVER {
+    @media (hover: hover) and (pointer: fine) {
+      @content;
+    }
+  } @else if $point == LAP_HOVER {
+    @media (min-width: $lap) and (hover: hover) and (pointer: fine) {
+      @content;
+    }
+  } @else if $point == TOUCHSCREEN {
+    @media (hover: none) and (pointer: coarse) {
+      @content;
+    }
+  }
+}

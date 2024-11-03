@@ -1,0 +1,20 @@
+.casual-dialog-content {
+  color: var(--color1);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.casual-dialog-title {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+}
+
+.casual-dialog-description {
+  max-width: 120ch;
+  font-size: 2rem;
+  line-height: 2.6rem;
+}

@@ -1,0 +1,111 @@
+@use 'breakpoints';
+
+.native-dialog-body-overflow-hidden{
+  overflow: hidden;
+}
+
+.native-dialog-root {
+  --color1: hsl(40deg 100% 93% / 88%);
+  --color3: hsl(0deg 0% 20%);
+  --color8: hsl(36deg 95% 59%);
+
+  --dialog-overlay: rgb(0 0 0 / 50%);
+  --dialog-layer: 1000;
+
+  // background
+  --bgc1-dark: var(--color3);
+
+  --radius1: 1rem;
+
+  // box-shadow
+  --bshadow1-dark: var(--color1);
+  --bshadow1-basis: 0.4rem 0.4rem 0;
+  --bshadow1: var(--bshadow1-dark) var(--bshadow1-basis);
+
+  // border
+  --border1-dark: var(--color1);
+  --border1-basis: 0.3rem solid;
+  --border1: var(--border1-dark) var(--border1-basis);
+}
+
+.native-dialog {
+  background-color: var( --bgc1-dark);
+  border-radius: var(--radius1);
+  box-shadow: var(--bshadow1);
+  border: var(--border1);
+  max-inline-size: min(90vw, 60ch);
+  max-block-size: min(80dvh, 100%);
+  overflow: visible;
+  margin: auto;
+  position: fixed;
+  inset: 0;
+  z-index: var(--dialog-layer);
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  flex-shrink: 0;
+
+  @include breakpoints.breakpoint('TO_HANDS') {
+    margin-block-end: 0;
+    border-end-end-radius: 0;
+    border-end-start-radius: 0;
+  }
+}
+
+.native-dialog-close-button {
+  position: absolute;
+  top: -5rem;
+  width: 5rem;
+  height: 5rem;
+  color: var(--color1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoints.breakpoint('TO_HANDS') {
+    right: 0;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2.1rem;
+    height: .1rem;
+    background-color: currentcolor;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  @include breakpoints.breakpoint('HANDS') {
+    right: -5rem;
+  }
+}
+
+.native-dialog-nav-element {
+  display: contents;
+}
+
+.native-dialog-bottom-sheet-panel {
+  height: 6rem;
+  position: relative;
+  order: -1;
+  flex-shrink: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: .5rem;
+    width: 5rem;
+    background-color: var(--color8);
+    inset: 0;
+    margin: auto;
+    border-radius: 1rem;
+  }
+}
