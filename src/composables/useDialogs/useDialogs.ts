@@ -748,11 +748,7 @@ export const useDialogStore = defineStore('dialogStore', () => {
         style: !onMounted || !onBeforeUnmount ? 'opacity: 0;' : '',
         class: `${cssClasses.nativeDialogClass} ${classList}`,
         onClick(event) {
-          console.log('34')
-
           if (!withClickOutside || !getCurrentOpenedDialog()) return
-
-          cancelAnimations(event.target as HTMLElement)
 
           clickOutside(event)
         },
