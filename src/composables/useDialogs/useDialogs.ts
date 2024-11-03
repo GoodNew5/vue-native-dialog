@@ -13,12 +13,7 @@ import { defineStore } from 'pinia'
 import hammerjs from 'hammerjs'
 import type { IDialogState, INavComponent, TBreakpointsOptions, TDialog } from './types'
 import { handleMediaListenersMode } from './types'
-import {
-  animationsComplete,
-  cancelAnimations,
-  rejectedAnimation,
-  waitForTransition
-} from '@/helpers/browserHelpers'
+import { animationsComplete, rejectedAnimation, waitForTransition } from '@/helpers/browserHelpers'
 import * as cssClasses from './cssClasses'
 
 // https://typescript.tv/errors/#ts4023
